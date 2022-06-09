@@ -1,24 +1,40 @@
-class ValidationError extends Error{
+class NodeJs26Error extends Error{
 constructor(message){
-    this.status=400;
     super(message);
+    this.status=400;
 }
 }
 
-class WrongParametersError extends Error{
+class ValidationError extends NodeJs26Error{
     constructor(message){
-        this.status=400;
         super(message);
+        this.status=400;
     }
     }
-    class UpdateParametersError extends Error{
+
+class WrongParametersError extends NodeJs26Error{
+    constructor(message){
+        super(message);
+        this.status=400;
+    }
+    }
+    class UpdateParametersError extends NodeJs26Error{
         constructor(message){
+            super(message);
             this.status=400;
-            super({message:"missing field favorite"});
         }
         }
+
+  class NotAuthorizedError extends NodeJs26Error{
+            constructor(message){
+                super(message);
+                this.status=401;
+            }
+            }      
 module.exports={
+    NodeJs26Error,
     ValidationError,
     WrongParametersError,
-    UpdateParametersError
+    UpdateParametersError,
+    NotAuthorizedError
 }

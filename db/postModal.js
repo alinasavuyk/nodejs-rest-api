@@ -4,6 +4,11 @@ const contactsSchema = new mongoose.Schema({
       type: String,
       required: [true, 'Set name for contact'],
     },
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Users',
+    },
+    
     email: {
       type: String,
     },

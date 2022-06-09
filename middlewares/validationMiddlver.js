@@ -10,7 +10,7 @@ module.exports={
           })
           const validatResult=schema.validate(req.body)
           if(validatResult.error){
-            return res.status(400).json({message: validatResult.error})
+            next(new ValidationError(JSON.stringify(validatResult.error.details)))
           }
           next()
           
